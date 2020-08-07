@@ -13,6 +13,12 @@ const $ = (...args) => {
         collection.forEach((element) => {
           element.style[property] = value
         })
+      } else if (typeof cssArgs[0] === 'object') {
+        collection.forEach((element) => {
+          Object.entries(cssArgs[0]).forEach(([property, value]) => {
+            element.style[property] = value
+          })
+        })
       }
     }
     return collection
