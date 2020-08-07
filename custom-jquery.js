@@ -7,6 +7,7 @@ const $ = (...args) => {
     // select an element
     const selector = args[0]
     const collection = document.querySelectorAll(selector)
+    // css method
     collection.css = (...cssArgs) => {
       if (typeof cssArgs[0] === 'string') {
         const [property, value] = cssArgs
@@ -20,6 +21,18 @@ const $ = (...args) => {
           })
         })
       }
+    }
+
+    // text method
+    collection.text = (...textArgs) => {
+      if (typeof textArgs[0] === 'string') {
+        const [value] = textArgs
+        if (value) {
+          collection[0].textContent = value
+          return value
+        }
+      }
+      return collection[0].textContent
     }
     return collection
   }
