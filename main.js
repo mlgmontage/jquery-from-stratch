@@ -5,4 +5,8 @@ $(() => {
     fontFamily: 'sans-serif',
   })
   console.log($('h1').text())
+
+  $('h1').on('click', () => {
+    alert('event fired')
+  })
 })

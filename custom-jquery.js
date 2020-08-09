@@ -34,6 +34,16 @@ const $ = (...args) => {
       }
       return collection[0].textContent
     }
+
+    // Event binding
+    collection.on = (...Args) => {
+      const [event, callback] = Args
+      collection.forEach((element) => {
+        element.addEventListener(event, callback)
+      })
+      return callback
+    }
+
     return collection
   }
 }
